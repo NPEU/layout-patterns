@@ -53,10 +53,27 @@ $gallery-grid-spacing-unit--large: ($gallery-grid-spacing-unit * 2) !default;
     max-width: 30em;
     /* 1.5x width */
 }
+
+.gallery-grid--basis-15 .gallery-grid__item {
+         -webkit-flex-basis: 15em;
+    -ms-flex-preferred-size: 15em;
+                 flex-basis: 15em;
+    max-width: 30em;
+    /* 1.5x width */
+}
+
+.gallery-grid--basis-10 .gallery-grid__item {
+         -webkit-flex-basis: 10em;
+    -ms-flex-preferred-size: 10em;
+                 flex-basis: 10em;
+    max-width: 30em;
+    /* 1.5x width */
+}
 /* @TODO make breakpoint a variable */
 
 
 .gallery-grid--gutter--small {
+    padding: $gallery-grid-spacing-unit--small $gallery-grid-spacing-unit--small 0 $gallery-grid-spacing-unit--small;
     margin-left: -($gallery-grid-spacing-unit--small / 2);
     margin-right: -($gallery-grid-spacing-unit--small / 2);
     
@@ -66,6 +83,7 @@ $gallery-grid-spacing-unit--large: ($gallery-grid-spacing-unit * 2) !default;
 }
 
 .gallery-grid--gutter--medium {
+    padding: $gallery-grid-spacing-unit $gallery-grid-spacing-unit 0 $gallery-grid-spacing-unit;
     margin-left: -($gallery-grid-spacing-unit / 2);
     margin-right: -($gallery-grid-spacing-unit / 2);
     
@@ -76,6 +94,7 @@ $gallery-grid-spacing-unit--large: ($gallery-grid-spacing-unit * 2) !default;
 
     
 .gallery-grid--gutter--large {
+    padding: $gallery-grid-spacing-unit--large $gallery-grid-spacing-unit--large 0 $gallery-grid-spacing-unit--large;
     margin-left: -($gallery-grid-spacing-unit--large / 2);
     margin-right: -($gallery-grid-spacing-unit--large / 2);
     
