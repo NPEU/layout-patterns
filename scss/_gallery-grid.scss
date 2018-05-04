@@ -17,14 +17,13 @@ $gallery-grid-spacing-unit--large: ($gallery-grid-spacing-unit * 2) !default;
             -ms-flex-wrap: wrap;
                 flex-wrap: wrap;
 
-                  -ms-flex-pack: center;
-        -webkit-justify-content: center;
-                justify-content: center;
 
-        margin-bottom: $gallery-grid-spacing-unit;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
     }
-
     
+
         .gallery-grid__item {
                  -webkit-flex: 1;
             -ms-flex-positive: 1;
@@ -38,67 +37,125 @@ $gallery-grid-spacing-unit--large: ($gallery-grid-spacing-unit * 2) !default;
             -ms-flex-preferred-size: auto;
                          flex-basis: auto;
         }
-}
 
-.gallery-grid.gallery-grid--gutter--small,
-.gallery-grid.gallery-grid--gutter--medium,
-.gallery-grid.gallery-grid--gutter--large {
-	margin-bottom: 0;
-}
-
-.gallery-grid--basis-20 .gallery-grid__item {
-         -webkit-flex-basis: 20em;
-    -ms-flex-preferred-size: 20em;
-                 flex-basis: 20em;
-    max-width: 30em;
-    /* 1.5x width */
-}
-
-.gallery-grid--basis-15 .gallery-grid__item {
-         -webkit-flex-basis: 15em;
-    -ms-flex-preferred-size: 15em;
-                 flex-basis: 15em;
-    max-width: 30em;
-    /* 1.5x width */
-}
-
-.gallery-grid--basis-10 .gallery-grid__item {
-         -webkit-flex-basis: 10em;
-    -ms-flex-preferred-size: 10em;
-                 flex-basis: 10em;
-    max-width: 30em;
-    /* 1.5x width */
-}
-/* @TODO make breakpoint a variable */
-
-
-.gallery-grid--gutter--small {
-    padding: $gallery-grid-spacing-unit--small $gallery-grid-spacing-unit--small 0 $gallery-grid-spacing-unit--small;
-    margin-left: -($gallery-grid-spacing-unit--small / 2);
-    margin-right: -($gallery-grid-spacing-unit--small / 2);
+    /* MODIFIERS */
     
-    .gallery-grid__item {
-        padding: 0 ($gallery-grid-spacing-unit--small / 2) $gallery-grid-spacing-unit--small ($gallery-grid-spacing-unit--small / 2);
+    /* Widths */
+        
+    &.gallery-grid--basis-20 .gallery-grid__item {
+             -webkit-flex-basis: 20em;
+        -ms-flex-preferred-size: 20em;
+                     flex-basis: 20em;
+        max-width: 20em;
     }
-}
 
-.gallery-grid--gutter--medium {
-    padding: $gallery-grid-spacing-unit $gallery-grid-spacing-unit 0 $gallery-grid-spacing-unit;
-    margin-left: -($gallery-grid-spacing-unit / 2);
-    margin-right: -($gallery-grid-spacing-unit / 2);
-    
-    .gallery-grid__item {
-        padding: 0 ($gallery-grid-spacing-unit / 2) $gallery-grid-spacing-unit ($gallery-grid-spacing-unit / 2);
+    &.gallery-grid--basis-15 .gallery-grid__item {
+             -webkit-flex-basis: 15em;
+        -ms-flex-preferred-size: 15em;
+                     flex-basis: 15em;
+        max-width: 15em;
     }
+
+    &.gallery-grid--basis-10 .gallery-grid__item {
+             -webkit-flex-basis: 10em;
+        -ms-flex-preferred-size: 10em;
+                     flex-basis: 10em;
+        max-width: 10em;
+    }
+    /* @TODO make breakpoint a variable */
+
+
+    /* Gutters */
+    
+    &.gallery-grid--gutter--small {
+        margin-left: -($gallery-grid-spacing-unit--small / 2);
+        margin-right: -($gallery-grid-spacing-unit--small / 2);
+        
+        .gallery-grid__item {
+            padding: 0 ($gallery-grid-spacing-unit--small / 2) $gallery-grid-spacing-unit--small ($gallery-grid-spacing-unit--small / 2);
+        }
+    }
+
+    &.gallery-grid--gutter--medium {
+        margin-left: -($gallery-grid-spacing-unit / 2);
+        margin-right: -($gallery-grid-spacing-unit / 2);
+
+        .gallery-grid__item {
+            padding: 0 ($gallery-grid-spacing-unit / 2) $gallery-grid-spacing-unit ($gallery-grid-spacing-unit / 2);
+        }
+    }
+
+        
+    &.gallery-grid--gutter--large {
+        margin-left: -($gallery-grid-spacing-unit--large / 2);
+        margin-right: -($gallery-grid-spacing-unit--large / 2);
+        
+        .gallery-grid__item {
+            padding: 0 ($gallery-grid-spacing-unit--large / 2) $gallery-grid-spacing-unit--large ($gallery-grid-spacing-unit--large / 2);
+        }
+    }
+    
+    
+    /* Alignment */
+    
+    &.gallery-grid--align-center {
+                      -ms-flex-pack: center;
+        -webkit-justify-content: center;
+                justify-content: center;
+    }
+    
+
 }
 
-    
-.gallery-grid--gutter--large {
-    padding: $gallery-grid-spacing-unit--large $gallery-grid-spacing-unit--large 0 $gallery-grid-spacing-unit--large;
-    margin-left: -($gallery-grid-spacing-unit--large / 2);
-    margin-right: -($gallery-grid-spacing-unit--large / 2);
-    
-    .gallery-grid__item {
-        padding: 0 ($gallery-grid-spacing-unit--large / 2) $gallery-grid-spacing-unit--large ($gallery-grid-spacing-unit--large / 2);
+
+/* GRID */
+@supports (display: grid) {
+    .gallery-grid {
+        &#{&} {
+            display: grid;
+        }
+        
+        &.gallery-grid--basis-20 {
+            grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+        }
+        
+        &.gallery-grid--basis-15 {
+            grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+        }
+        
+        &.gallery-grid--basis-10 {
+            grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+        }
+        
+        
+        /* Gutters */
+            
+        &.gallery-grid--gutter--small {
+            margin: 0;
+            grid-gap: $gallery-grid-spacing-unit--small;
+            
+            .gallery-grid__item {
+                padding: 0;
+            }
+        }
+
+        &.gallery-grid--gutter--medium {
+            margin: 0;
+            grid-gap: $gallery-grid-spacing-unit;
+
+            .gallery-grid__item {
+                padding: 0;
+            }
+        }
+
+            
+        &.gallery-grid--gutter--large {
+            margin: 0;
+            grid-gap: $gallery-grid-spacing-unit--large;
+            
+            .gallery-grid__item {
+                padding: 0;
+            }
+        }
     }
 }
