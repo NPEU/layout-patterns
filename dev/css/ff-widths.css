@@ -5,6 +5,36 @@
     https://www.sitepoint.com/responsive-css-patterns-without-media-queries/
 
 */
+.ff-width-100--10--25 {
+  max-width: 100%;
+  width: calc((10em - 100%) * 1000);
+  min-width: 25%;
+}
+
+.ff-width-100--10--33-333 {
+  max-width: 100%;
+  width: calc((10em - 100%) * 1000);
+  min-width: 33.333%;
+}
+
+.ff-width-100--10--50 {
+  max-width: 100%;
+  width: calc((10em - 100%) * 1000);
+  min-width: 50%;
+}
+
+.ff-width-100--10--66-666 {
+  max-width: 100%;
+  width: calc((10em - 100%) * 1000);
+  min-width: 66.666%;
+}
+
+.ff-width-100--10--75 {
+  max-width: 100%;
+  width: calc((10em - 100%) * 1000);
+  min-width: 75%;
+}
+
 .ff-width-100--20--25 {
   max-width: 100%;
   width: calc((20em - 100%) * 1000);

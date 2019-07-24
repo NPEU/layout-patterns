@@ -22,9 +22,10 @@ $gallery-grid-spacing-unit--large: ($gallery-grid-spacing-unit * 2) !default;
         padding: 0;
         list-style-type: none;
     }
-    
+
 
         .gallery-grid__item {
+            margin: 0;
                  -webkit-flex: 1;
             -ms-flex-positive: 1;
                     flex-grow: 1;
@@ -39,9 +40,9 @@ $gallery-grid-spacing-unit--large: ($gallery-grid-spacing-unit * 2) !default;
         }
 
     /* MODIFIERS */
-    
+
     /* Widths */
-        
+
     &.gallery-grid--basis-20 .gallery-grid__item {
              -webkit-flex-basis: 20em;
         -ms-flex-preferred-size: 20em;
@@ -66,11 +67,11 @@ $gallery-grid-spacing-unit--large: ($gallery-grid-spacing-unit * 2) !default;
 
 
     /* Gutters */
-    
+
     &.gallery-grid--gutter--small {
         margin-left: -($gallery-grid-spacing-unit--small / 2);
         margin-right: -($gallery-grid-spacing-unit--small / 2);
-        
+
         .gallery-grid__item {
             padding: 0 ($gallery-grid-spacing-unit--small / 2) $gallery-grid-spacing-unit--small ($gallery-grid-spacing-unit--small / 2);
         }
@@ -85,25 +86,25 @@ $gallery-grid-spacing-unit--large: ($gallery-grid-spacing-unit * 2) !default;
         }
     }
 
-        
+
     &.gallery-grid--gutter--large {
         margin-left: -($gallery-grid-spacing-unit--large / 2);
         margin-right: -($gallery-grid-spacing-unit--large / 2);
-        
+
         .gallery-grid__item {
             padding: 0 ($gallery-grid-spacing-unit--large / 2) $gallery-grid-spacing-unit--large ($gallery-grid-spacing-unit--large / 2);
         }
     }
-    
-    
+
+
     /* Alignment */
-    
+
     &.gallery-grid--align-center {
                       -ms-flex-pack: center;
         -webkit-justify-content: center;
                 justify-content: center;
     }
-    
+
 
 }
 
@@ -114,26 +115,30 @@ $gallery-grid-spacing-unit--large: ($gallery-grid-spacing-unit * 2) !default;
         &#{&} {
             display: grid;
         }
-        
+
+        .gallery-grid__item.gallery-grid__item {
+            max-width: none;
+        }
+
         &.gallery-grid--basis-20 {
             grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
         }
-        
+
         &.gallery-grid--basis-15 {
             grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
         }
-        
+
         &.gallery-grid--basis-10 {
             grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
         }
-        
-        
+
+
         /* Gutters */
-            
+
         &.gallery-grid--gutter--small {
             margin: 0;
             grid-gap: $gallery-grid-spacing-unit--small;
-            
+
             .gallery-grid__item {
                 padding: 0;
             }
@@ -148,11 +153,11 @@ $gallery-grid-spacing-unit--large: ($gallery-grid-spacing-unit * 2) !default;
             }
         }
 
-            
+
         &.gallery-grid--gutter--large {
             margin: 0;
             grid-gap: $gallery-grid-spacing-unit--large;
-            
+
             .gallery-grid__item {
                 padding: 0;
             }
